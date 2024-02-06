@@ -1,0 +1,101 @@
+create table transaction (
+	transaction_id serial primary key
+	,product_id serial
+	,customer_id serial
+	,transaction_date date
+	,online_order boolean
+	,order_status varchar
+	,list_price float8
+)
+
+create table Product (
+	product_id serial primary key
+	,brand varchar
+	,product_line varchar
+	,product_class varchar
+	,product_size varchar
+	,standart_cost float8	
+)
+
+create table Customer (
+	customer_id serial primary key
+	,first_name varchar
+	,last_name varchar
+	,gender varchar
+	,DOB date
+	,customer_address_id serial
+	,job_title varchar
+	,job_industry_category varchar
+	,wealth_segment varchar
+	,deceased_indicator varchar
+	,owns_car varchar
+	,property_valuation int4
+)
+
+
+create table Customer_address (
+	customer_address_id serial primary key
+	,customer_id serial
+	,adress_id serial
+	,postcode_id serial
+	,state_id serial
+	,country_id serial
+)
+
+create table Adress (
+	address_id serial primary key
+	,address varchar
+)
+
+create table Postcode (
+	postcode_id serial primary key
+	,postcode int4
+)
+
+create table State (
+	state_id serial primary key
+	,state varchar
+)
+
+create table Country (
+	country_id serial primary key
+	,country varchar
+)
+
+
+insert into transaction values (1, 2, 2950, '25/2/2017',	false,	'Approved',	71.49) 
+
+
+insert into transaction values (2,	3,	3120,	'21/5/2017',	true,	'Approved', 2091.47) 
+
+
+insert into transaction values (3,	37,	402,	'16/10/2017',	false,	'Approved',	1793.43) 
+
+
+insert into transaction values (4,	88,	3135,	'31/8/2017',	false,	'Approved',	1198.46) 
+
+insert into product values (2,	'Solex',	'Standard',	'medium',	'medium',	53.62)
+
+insert into product values (3,	'Trek Bicycles',	'Standard',	'medium',	'large',	388.92)
+
+insert into product values (37,	'OHM Cycles',	'Standard',	'low',	'medium',	248.82)
+
+insert into state values (1, 'New South Wales') ,(2, 'New South Wales'), (3, 'QLD')
+
+insert into postcode values (1, 2016), (2, 2153), (3, 4211)
+
+insert into country values (1, 'Australia'), (2, 'Australia'), (3, 'Australia')
+
+insert into adress values (1, '060 Morning Avenue'), (2, '6 Meadow Vale Court'), (3, '0 Holy Cross Court')
+
+insert into customer_address values (1, 1, 1, 1, 1, 1), (2, 2, 2, 2, 2, 2), (3, 3, 3, 3, 3, 3)
+
+insert into customer values (1,	'Laraine',	'Medendorp',	'F',	'1953-10-12', 1, 	'Executive Secretary',	'Health',	'Mass Customer',	'N',	'Yes', 10)
+
+insert into customer values (2,	'Eli',	'Bockman',	'Male',	'1980-12-16', 2, 	'Administrative Officer',	'Financial Services',	'Mass Customer',	'N',	'Yes',	10)
+
+insert into customer values (3,	'Arlin',	'Dearle',	'Male',	'1954-01-20', 3,	'Recruiting Manager',	'Property',	'Mass Customer',	'N',	'Yes',	9)
+
+
+
+
